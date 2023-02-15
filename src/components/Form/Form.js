@@ -1,20 +1,20 @@
-import { Formik, Form, ErrorMessage } from 'formik';
-import { nanoid } from 'nanoid';
-import * as yup from 'yup';
+// import { Formik, Form, ErrorMessage } from 'formik';
+// import { nanoid } from 'nanoid';
+// import * as yup from 'yup';
 import { FormButton, FormLabel, Input } from './Form.styled';
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/actions';
 
-let schema = yup.object().shape({
-  name: yup.string().required(),
-  number: yup.string().min(7).max(12).required(),
-});
+// let schema = yup.object().shape({
+//   name: yup.string().required(),
+//   number: yup.string().min(7).max(12).required(),
+// });
 
-const initialValues = {
-  name: '',
-  id: nanoid(5),
-  number: '',
-};
+// const initialValues = {
+//   name: '',
+//   id: nanoid(5),
+//   number: '',
+// };
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -56,21 +56,27 @@ export const ContactForm = () => {
     //   </Form>
     // </Formik>
     <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="name"
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-        required
-      />
-      <input
-        type="tel"
-        name="number"
-        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-        required
-      ></input>
-      <button type="submit">Add number</button>
+      <FormLabel htmlFor="name">
+        <Input
+          type="text"
+          name="name"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          placeholder=" Contact name"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          required
+        />
+      </FormLabel>
+      <FormLabel htmlFor="number">
+        <Input
+          type="tel"
+          name="number"
+          placeholder="Phone number"
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          required
+        ></Input>
+      </FormLabel>
+      <FormButton type="submit">Add number</FormButton>
     </form>
   );
 };

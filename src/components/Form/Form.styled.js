@@ -1,6 +1,5 @@
-import { Field } from 'formik';
 import styled from 'styled-components';
-export const Input = styled(Field)`
+export const Input = styled.input`
   padding: 10px;
   box-shadow: ${props => props.theme.shadow};
   border-radius: 10px;
