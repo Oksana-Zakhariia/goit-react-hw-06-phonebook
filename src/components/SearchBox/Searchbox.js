@@ -1,14 +1,14 @@
 import { Filter, InputLabel } from './SearchBox.styled';
 import { useSelector, useDispatch } from 'react-redux';
-import { setContactsFilter } from 'redux/actions';
+import { setContactsFilter } from '../../redux/filterSlice';
 import { getContactsFilter } from 'redux/selectors';
 
 export const SearchBox = () => {
   const dispatch = useDispatch();
   const filter = useSelector(getContactsFilter);
-  console.log(filter);
 
-  const handleFilterChange = () => dispatch(setContactsFilter(value));
+  const handleFilterChange = event =>
+    dispatch(setContactsFilter(event.target.value));
 
   const value = filter.target;
   console.log(value);

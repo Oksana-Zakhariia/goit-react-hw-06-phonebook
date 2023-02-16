@@ -1,3 +1,14 @@
+import { configureStore } from '@reduxjs/toolkit';
+import { filterReducer } from './filterSlice';
+import { contactsReducer } from './contactSlice';
+
+export const store = configureStore({
+  reducer: {
+    contacts: contactsReducer,
+    filter: filterReducer,
+  },
+});
+
 // import { configureStore } from '@reduxjs/toolkit';
 // import { contactsReducer, filtersReducer } from './reducer';
 
@@ -7,9 +18,8 @@
 //     filters: filtersReducer,
 //   },
 // });
-import { rootReducer } from './reducer';
-import { createStore } from 'redux';
-import { devToolsEnhancer } from '@redux-devtools/extension';
+// import { createStore } from 'redux';
+// import { devToolsEnhancer } from '@redux-devtools/extension';
 
-const enhancer = devToolsEnhancer();
-export const store = createStore(rootReducer, enhancer);
+// const enhancer = devToolsEnhancer();
+// export const store = createStore(rootReducer, enhancer);

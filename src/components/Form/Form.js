@@ -3,7 +3,7 @@
 // import * as yup from 'yup';
 import { FormButton, FormLabel, Input } from './Form.styled';
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/actions';
+import { addContact } from '../../redux/contactSlice';
 
 // let schema = yup.object().shape({
 //   name: yup.string().required(),

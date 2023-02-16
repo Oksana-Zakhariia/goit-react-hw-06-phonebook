@@ -13,14 +13,18 @@ import { getContacts, getContactsFilter } from 'redux/selectors';
 
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
-  const filter = useSelector(getContactsFilter);
-  // // const visibleContacts = getVisibleContacts(contacts, filter);
+  const filter = Object.values(useSelector(getContactsFilter));
+  const normalizedFilterValue = filter;
+  const filtredContacts = contacts.filter(contact => {
+    return contact.name.toLowerCase().includes(normalizedFilterValue);
+  });
+  // const visibleContacts = getVisibleContacts(contacts, filter);
   console.log(filter);
 
   return (
     <List>
-      {contacts &&
-        contacts.map(contact => {
+      {filtredContacts &&
+        filtredContacts.map(contact => {
           return (
             <li key={contact.id}>
               <Contact item={contact} />
