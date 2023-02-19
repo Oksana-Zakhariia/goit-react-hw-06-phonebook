@@ -22,7 +22,7 @@ export const ContactForm = () => {
   const contacts = useSelector(getContacts);
   const handleSubmit = (values, { resetForm }) => {
     const { name, number } = values;
-    console.log(values);
+    // console.log(values);
     if (
       contacts.find(
         contact => contact.name.toLowerCase() === name.toLowerCase()

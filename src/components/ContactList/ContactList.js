@@ -4,7 +4,7 @@ import { Contact } from 'components/Contact/Contact';
 import { getContacts, getContactsFilter } from 'redux/selectors';
 
 const getVisibleContacts = (contacts, filter) => {
-  console.log(filter);
+  // console.log(filter);
   const visibleContacts = [];
   // console.log(contacts);
   contacts.filter(contact => {
@@ -22,7 +22,7 @@ export const ContactList = () => {
   const filter = useSelector(getContactsFilter);
 
   const visibleContacts = getVisibleContacts(contacts, filter);
-  console.log(visibleContacts);
+  // console.log(visibleContacts);
 
   return (
     <List>
