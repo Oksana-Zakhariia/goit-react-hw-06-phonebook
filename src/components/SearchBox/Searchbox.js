@@ -11,7 +11,6 @@ export const SearchBox = () => {
     dispatch(setContactsFilter(event.target.value));
 
   const value = filter.target;
-  console.log(value);
   return (
     <InputLabel htmlFor="filter">
       Find contacts by name
